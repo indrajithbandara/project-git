@@ -11,7 +11,7 @@ RailsAdmin.config do |config|
   config.navigation_static_label = "Slide Home"
   config.navigation_static_label = "Setting"
   config.navigation_static_label = "Admin Data"
-
+  config.excluded_models << "Slide"
 
       if defined?(WillPaginate)  # Ini line code untuk pagination rails admin
       module WillPaginate
@@ -59,77 +59,10 @@ RailsAdmin.config do |config|
 
   config.model 'Travel' do
     label "Article Travel"
-    edit do
-      field :image1 do
-        label "image slide"
-        help "Ukuran ideal image lebar 800-1200px & tinggi 650px - lebih"
-      end
-      field :title_slide do
-        label "title slide"
-        help "Title image"
-      end
-      field :description_slide do
-      label "description slide"
-      help "keterangan tempat, tanggal atau yang lainya" 
-      end
-      field :content_slide do
-      label "content slide"
-      help "Tambah keterangan pada gambar, jika tidak di isi tidak akan tampil" 
-      end
-
-      field :image2 do
-        label "image slide"
-        help "Ukuran ideal image lebar 800-1200px & tinggi 650px - lebih"
-      end
-      field :title_slide2 do
-        label "title slide"
-        help "Title image"
-      end
-      field :description_slide2 do
-        label "description slide"
-        help "keterangan tempat, tanggal atau yang lainya" 
-      end
-      field :content_slide2 do
-        label "content slide"
-        help "Tambah keterangan pada gambar, jika tidak di isi tidak akan tampil"
-      end
-
-      field :image3 do
-        label "image slide"
-        help "Ukuran ideal image lebar 800-1200px & tinggi 650px - lebih"
-      end
-      field :title_slide3 do
-        label "title slide"
-        help "Title image"
-      end
-      field :description_slide3 do
-        label "description slide"
-        help "keterangan tempat, tanggal atau yang lainya" 
-      end
-      field :content_slide3 do
-        label "content slide"
-        help "Tambah keterangan pada gambar, jika tidak di isi tidak akan tampil"
-      end
-
-      field :image4 do
-        label "image slide"
-        help "Ukuran ideal image lebar 800-1200px & tinggi 650px - lebih"
-      end
-      field :title_slide4 do
-        label "title slide"
-        help "Title image"
-      end
-      field :description_slide4 do
-        label "description slide"
-        help "keterangan tempat, tanggal atau yang lainya" 
-      end
-      field :content_slide4 do
-        label "content slide"
-      end
-
+     edit do
       field :title do
         label "title travel"
-        help "Title image"
+        help "Title"
       end
       field :description do
       label "description travel"
