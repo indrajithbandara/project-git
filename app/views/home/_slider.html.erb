@@ -1,0 +1,33 @@
+<!-- Slider main container -->
+<div class="swiper-container">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+        <!-- Slides -->
+        <% @slides.each do |slide| %>
+        <div class="swiper-slide">
+              <div class="parallax-bg">
+              <%= image_tag(slide.image.url, class: "article-image") %>
+              </div>
+              <div class="title" data-swiper-parallax="-100">
+                <%= slide.title %>
+              </div>
+                <div class="subtitle" data-swiper-parallax="-200">
+                <%= slide.description.html_safe %>
+                </div>
+                <div class="text" data-swiper-parallax="-300">
+                  <%= slide.content.html_safe %>
+                  <%= link_to "Baca", slide.link, class: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" %>
+                </div>  
+        </div>
+        <% end %>
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+    
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    
+    <!-- If we need scrollbar -->
+    <div class="swiper-scrollbar"></div>
+</div>

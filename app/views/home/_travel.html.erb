@@ -1,0 +1,21 @@
+<% @travels.each do |travel| %>
+<div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                <div class="mdl-card__media">
+                <%= image_tag(travel.image1.url, class: "article-image") %>
+                </div>
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">
+                        <%= travel.title %>
+                        </h2>
+                    </div>
+            <div class="mdl-card__supporting-text">
+            <strong>
+             <%= travel.created_at.strftime("%d-%B-%Y") %>
+            </strong>
+           <p><%= travel.description.html_safe %></p>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+            <%= link_to "Baca", travel, class: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" %>
+            </div>
+</div>
+<% end %>

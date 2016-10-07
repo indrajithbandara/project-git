@@ -1,0 +1,19 @@
+<% @events.each do |event| %>
+<div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+<div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">
+        <%= event.title %>
+        </h2>
+    </div>
+    <div class="mdl-card__supporting-text">
+     <strong>
+    <%= event.created_at.strftime("%d-%B-%Y") %>
+    </strong>
+   <p><%= event.description.html_safe %></p>
+    </div>
+        <div class="mdl-card__actions mdl-card--border">
+        <%= link_to "Baca", event, class: "mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" %>
+        </div>
+</div>
+<% end %>
+               

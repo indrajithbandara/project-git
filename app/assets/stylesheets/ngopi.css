@@ -1,0 +1,22 @@
+footer {
+    background-color: #FFFCFC !important;
+}
+
+wicky {
+    font-weight: 400;
+    line-height: 24px;
+    font-size: 16px;
+    letter-spacing: .04em;
+    font-family: 'Abril Fatface', cursive !important;
+    margin: 24px 0 16px;
+    color:  #56445D;
+}
+
+.iyo {
+        font-size: 24px;
+        font-weight: 300;
+        font-family: 'Abril Fatface', cursive !important;
+        line-height: 1.2;
+        color: #56445D;
+    }
+

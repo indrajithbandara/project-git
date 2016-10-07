@@ -11,6 +11,15 @@
 // about supported directives.
 //
 //= require jquery
+//= require material
+//= require material.min
+//= require ckeditor/init
+//= require swiper/swiper.jquery
+//= require swiper/swiper.jquery.min
+//= require swiper/swiper.jquery.umd
+//= require swiper/swiper.jquery.umd.min
+//= require swiper/swiper
+//= require swiper/swiper.min
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
