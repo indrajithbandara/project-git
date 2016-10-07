@@ -11,6 +11,7 @@ RailsAdmin.config do |config|
   config.navigation_static_label = "Slide Home"
   config.navigation_static_label = "Setting"
   config.navigation_static_label = "Admin Data"
+  config.excluded_models << "Slide"
 
       if defined?(WillPaginate)  # Ini line code untuk pagination rails admin
       module WillPaginate
