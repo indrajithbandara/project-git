@@ -82,9 +82,6 @@ RailsAdmin.config do |config|
       field :title do
         label "Title travel"
       end
-      field :image1 do
-        label "Slide Image"
-      end
       field :tcategory do
         label "Category"
       end
