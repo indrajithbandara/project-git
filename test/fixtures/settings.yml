@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title_website: MyString
+  title_travel: MyString
+  title_event: MyString
+  title_footer: MyString
+
+two:
+  title_website: MyString
+  title_travel: MyString
+  title_event: MyString
+  title_footer: MyString

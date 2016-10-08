@@ -1,0 +1,32 @@
+ <main class="mdl-layout__content">
+            <div class="mdl-grid portfolio-max-width">
+                <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
+                    <div class="mdl-card__media">
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <strong>
+                        <%= @travel.created_at.strftime("%d-%B-%Y") %>
+                        </strong>
+                        <span>
+                        Design, UX and Frontend Development</span>
+                    </div>
+                    <div class="android-drawer-separator"></div>
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">
+                        <%= @travel.title %>
+                        </h2>
+                    </div>
+                   <div class="mdl-card__supporting-text">
+                    <p><%= @travel.content.html_safe %></p>
+                    </div>
+                    <div class="android-drawer-separator"></div>
+                     <div class="mdl-card__supporting-text">
+                        <%= render "comment" %>
+                    </div>
+                </div>
+
+            </div>
+            <div class="android-drawer-separator"></div>
+           <%= render "footer" %>
+        </main>
+   

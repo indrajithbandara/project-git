@@ -1,0 +1,1 @@
+json.partial! "ecategories/ecategory", ecategory: @ecategory

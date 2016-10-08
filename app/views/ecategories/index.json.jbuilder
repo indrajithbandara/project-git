@@ -1,0 +1,1 @@
+json.array! @ecategories, partial: 'ecategories/ecategory', as: :ecategory
