@@ -12,14 +12,17 @@
 
 ActiveRecord::Schema.define(version: 20161002095723) do
 
-  create_table "abouts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "abouts", force: :cascade do |t|
     t.string   "title"
-    t.text     "content",    limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "akiras", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "akiras", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -37,7 +40,7 @@ ActiveRecord::Schema.define(version: 20161002095723) do
     t.index ["reset_password_token"], name: "index_akiras_on_reset_password_token", unique: true, using: :btree
   end
 
-  create_table "ckeditor_assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
     t.string   "data_content_type"
     t.integer  "data_file_size"
@@ -53,39 +56,57 @@ ActiveRecord::Schema.define(version: 20161002095723) do
     t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
   end
 
-  create_table "ecategories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "ecategories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "events", force: :cascade do |t|
     t.string   "title"
-    t.text     "description",  limit: 65535
-    t.text     "content",      limit: 65535
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.text     "description"
+    t.text     "content"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.string   "slug"
     t.integer  "ecategory_id"
     t.index ["slug"], name: "index_events_on_slug", unique: true, using: :btree
   end
 
-  create_table "settings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "sessions", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "remote_ip"
+  end
+
+  create_table "settings", force: :cascade do |t|
     t.string   "title_website"
     t.string   "title_travel"
     t.string   "title_event"
     t.string   "title_footer"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.text     "disqus",        limit: 65535
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "banner_travel_file_name"
+    t.string   "banner_travel_content_type"
+    t.integer  "banner_travel_file_size"
+    t.datetime "banner_travel_updated_at"
+    t.string   "banner_event_file_name"
+    t.string   "banner_event_content_type"
+    t.integer  "banner_event_file_size"
+    t.datetime "banner_event_updated_at"
+    t.string   "banner_about_file_name"
+    t.string   "banner_about_content_type"
+    t.integer  "banner_about_file_size"
+    t.datetime "banner_about_updated_at"
+    t.text     "disqus"
   end
 
-  create_table "slides", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "slides", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
-    t.text     "content",            limit: 65535
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.text     "content"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -93,18 +114,18 @@ ActiveRecord::Schema.define(version: 20161002095723) do
     t.string   "link"
   end
 
-  create_table "tcategories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "tcategories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "travels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "travels", force: :cascade do |t|
     t.string   "title"
-    t.text     "description",         limit: 65535
-    t.text     "content",             limit: 65535
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.text     "description"
+    t.text     "content"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.string   "image1_file_name"
     t.string   "image1_content_type"
     t.integer  "image1_file_size"
@@ -125,20 +146,20 @@ ActiveRecord::Schema.define(version: 20161002095723) do
     t.integer  "tcategory_id"
     t.string   "title_slide"
     t.string   "description_slide"
-    t.text     "content_slide",       limit: 65535
+    t.text     "content_slide"
     t.string   "title_slide2"
     t.string   "description_slide2"
-    t.text     "content_slide2",      limit: 65535
+    t.text     "content_slide2"
     t.string   "title_slide3"
     t.string   "description_slide3"
-    t.text     "content_slide3",      limit: 65535
+    t.text     "content_slide3"
     t.string   "title_slide4"
     t.string   "description_slide4"
-    t.text     "content_slide4",      limit: 65535
+    t.text     "content_slide4"
     t.index ["slug"], name: "index_travels_on_slug", unique: true, using: :btree
   end
 
-  create_table "votes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "votes", force: :cascade do |t|
     t.string   "votable_type"
     t.integer  "votable_id"
     t.string   "voter_type"
